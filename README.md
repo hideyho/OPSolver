@@ -1,0 +1,3 @@
+# opSolver
+
+Optimization project solver
