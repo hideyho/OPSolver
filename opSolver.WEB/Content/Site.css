@@ -1,24 +1,128 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿*,
+body{
+    top:0;
+    left:0;
+    display:block;
+    padding: 0;
+    margin:0;
+    font-family: "Raleway";
+}
+a{
+    color: #000;
+}
+a:hover,
+a:focus{
+    color: #000;
+    text-decoration: none;
+}
+ul{
+    list-style:none;
+}
+/*Form Items*/
+.opInput{
+    display:block;
+    margin: 30px auto;
+    padding:10px;
+    border: .5px solid rgba(0,0,0,.2);
+    border-radius: 10px;
+}
+.opButton{
+    display:block;
+    margin: auto;
+    width: 180px;
+    padding:10px;
+    background-color: #ff5e01;
+    color:#fff;
+    border: 0px solid;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+}
+.opButton:hover{
+    background-color: #ff5e35;
+    box-shadow: 0px 0px 15px rgba(0,0,0,1);
+}
+/*Layout*/
+nav{
+    padding: 50px 0;
+    width: 100%;
+    top:0;
+    left:0;
+    position:fixed;
+}
+nav .menu{
+    width: 100%;
+    text-align:center;
+}
+nav .menu>li{
+    text-align:center;
+    display:inline-block;
+    margin:0;
+}
+nav .menu>li a{
+    line-height: 50px;
+    padding: 10px 10px;
+}
+nav .menu>li a:hover{
+    color:#ff5e01;
+    transition: .2s;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.ico{
+    height: 50px;
+    display:inline;
+    float:left;
+    margin-right: -10px;
+}
+.ico-title {
+    font-size: 40px;
+    line-height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: -5px;
+}
+.username{
+    line-height: 55px;
+    float:right;
+    padding: 10px 0;
+    margin: 0;
+}
+.lang{
+    line-height: 55px;
+    padding: 10px 0;
+    margin: 0;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.submenu {
+    position: absolute;
+    left: auto;
+    top: auto;
+    background-color:#ff5e01;
+    display:none;
+    
+}
+.submenu>li{
+    padding: 0 10px;
+    color: #fff;
+    
+}
+.submenu>li>a{
+    color:#fff;
+}
+.submenu li:hover{
+    background-color:#000;
+    color:#fff;
+    transition: .3s;
+}
+.method:hover .submenu {
+    display:block;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+/*Index*/
+header{
+    height:100vh;
+    width: 100%;
+}
+.main-title{
+    text-align: center;
+    margin: 300px;
 }
