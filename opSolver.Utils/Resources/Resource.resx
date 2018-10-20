@@ -132,4 +132,31 @@
   <data name="Statistic" xml:space="preserve">
     <value>Статистика</value>
   </data>
+  <data name="cookieName" xml:space="preserve">
+    <value>Неизвестно</value>
+  </data>
+  <data name="method1" xml:space="preserve">
+    <value>Симплекс</value>
+  </data>
+  <data name="method2" xml:space="preserve">
+    <value>Гинетический</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>RU</value>
+  </data>
+  <data name="accept" xml:space="preserve">
+    <value>Подтвердить</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Возраст</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Вернуться</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Результат</value>
+  </data>
 </root>

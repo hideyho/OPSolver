@@ -6,10 +6,12 @@ using System.Web.Mvc;
 using opSolver.DAL.Entities;
 using opSolver.DAL.Interfaces;
 using opSolver.WEB.Utils;
+using opSolver.OPS.Methods.Simplex;
 
 
 namespace opSolver.WEB.Controllers
 {
+    [Culture]
     public class HomeController : Controller
     {
         IUntiOfWork db;
@@ -17,8 +19,30 @@ namespace opSolver.WEB.Controllers
         {
             db = uof;
         }
-       
 
+        //Culture
+       
+        public ActionResult ChangeCulture(string lang)
+        {
+            string returnUrl = Request.UrlReferrer.AbsolutePath;
+            List<string> cultures = new List<string>() { "ru", "en" };
+            if (!cultures.Contains(lang))
+                lang = "ru";
+            HttpCookie cookie = Request.Cookies["lang"];
+            if (cookie != null)
+                cookie.Value = lang;
+            else
+            {
+                cookie = new HttpCookie("lang");
+                cookie.HttpOnly = false;
+                cookie.Value = lang;
+                cookie.Expires = DateTime.Now.AddYears(1);
+            }
+            Response.Cookies.Add(cookie);
+            return Redirect(returnUrl);
+        }
+
+        //Index
         public ActionResult Index()
         {
             return View();
@@ -33,30 +57,28 @@ namespace opSolver.WEB.Controllers
                 db.Users.Create(item);
                 db.Save();
 
-                var cookie = new HttpCookie("userName")
-                {
-                    Value = item.Name
-                };
-                Response.SetCookie(cookie);
-
+                Response.SetCookie(new HttpCookie("userName") {Value = item.Name });
+                Response.SetCookie(new HttpCookie("userID") { Value = Convert.ToString(item.Id)});
             }
             return View();
                 
         }
-
-
-        public ActionResult About()
+        //Simplex
+        public ActionResult Simplex()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult Simplex(SData item, string Method)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            try
+            {
+                item.Solve();
+            }
+            catch (Exception) { }
+            
+            return View(item);
         }
+
     }
 }

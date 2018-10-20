@@ -1,6 +1,6 @@
 ﻿@{ 
     var cookie = Request.Cookies["userName"];
-    var value = (cookie == null) ? "unnamed" : cookie.Value;
+    var value = (cookie == null) ? lang.Resource.cookieName : cookie.Value;
 }
 <!DOCTYPE html>
 <html>
@@ -32,8 +32,8 @@
                             
                             </a>
                             <ul class="submenu" >
-                                <li><a href="#">content</a></li>
-                                <li><a href="#">content</a></li>
+                                <li>@Html.ActionLink(lang.Resource.method1,"Simplex")</li>
+                                <li><a href="#">@lang.Resource.method2</a></li>
                             </ul>
                         </li>
                         <li><a href="#">@lang.Resource.Statistic</a></li>
@@ -42,11 +42,24 @@
                 </div>
                 <div class="col-md-2">
                     <p class="username">
-                      @value
+                        @value
+                        |
                     </p>
                 </div>
                 <div class="col-md-1">
-                    <p class="lang">|</p>
+                    <p class="lang">
+                        
+                        @using (Html.BeginForm("ChangeCulture", "Home"))
+                        {
+                            <select onchange="this.form.submit()" class="opSelect" name="lang">
+                                <option disabled selected>@lang.Resource.lang</option>
+                                <option value="ru">RU</option>
+                                <option value="en">EN</option>
+                            </select>
+                        }
+
+                    </p>
+
                 </div>
             </div>
         </div>

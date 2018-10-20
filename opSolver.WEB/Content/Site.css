@@ -2,11 +2,11 @@
 body{
     top:0;
     left:0;
-    display:block;
     padding: 0;
     margin:0;
     font-family: "Raleway";
 }
+
 a{
     color: #000;
 }
@@ -33,14 +33,30 @@ ul{
     padding:10px;
     background-color: #ff5e01;
     color:#fff;
-    border: 0px solid;
+    border: 0 solid;
     border-radius:10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 .opButton:hover{
     background-color: #ff5e35;
-    box-shadow: 0px 0px 15px rgba(0,0,0,1);
+    box-shadow: 0 0 15px rgba(0,0,0,1);
 }
+.opSelect{
+    float:left;
+    border: none;
+    margin: 7px 0;
+    color: #ff5e01;
+}
+table input{
+    width: 50px;
+    height: 50px;
+    border:0;
+}
+table td:last-child input{
+    width: 150px;
+}
+
+
 /*Layout*/
 nav{
     padding: 50px 0;
@@ -48,6 +64,8 @@ nav{
     top:0;
     left:0;
     position:fixed;
+    background-color:#fff;
+    z-index:999;
 }
 nav .menu{
     width: 100%;
@@ -59,10 +77,11 @@ nav .menu>li{
     margin:0;
 }
 nav .menu>li a{
-    line-height: 50px;
+    line-height: 70px;
     padding: 10px 10px;
 }
-nav .menu>li a:hover{
+nav .menu>li a:hover,
+nav .menu>li a:active{
     color:#ff5e01;
     transition: .2s;
 }
@@ -81,15 +100,15 @@ nav .menu>li a:hover{
     letter-spacing: -5px;
 }
 .username{
-    line-height: 55px;
+    line-height: 50px;
     float:right;
     padding: 10px 0;
     margin: 0;
 }
 .lang{
-    line-height: 55px;
-    padding: 10px 0;
+    
     margin: 0;
+    padding: 8.5px 0;
 }
 
 .submenu {
@@ -121,8 +140,9 @@ nav .menu>li a:hover{
 header{
     height:100vh;
     width: 100%;
+    padding: 300px 0;
 }
 .main-title{
     text-align: center;
-    margin: 300px;
+    margin:auto;
 }

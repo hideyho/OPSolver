@@ -1,0 +1,193 @@
+﻿@model opSolver.OPS.Methods.Simplex.SData
+@{
+    ViewBag.Title = lang.Resource.method1;
+    var selectedList = new List<bool>() { true, false };
+
+}
+
+<header>
+    <div class="container">
+        <div class="main-title">
+            <h1>@lang.Resource.method1</h1>
+        </div>
+        <br /><br />
+              <div class="row">
+                 
+                  <div class="col-md-12">
+                      @using (Html.BeginForm("Simplex", "Home", FormMethod.Post))
+                      {
+                          @Html.AntiForgeryToken()
+                      <table class="table table-bordered">
+                          <thead class="thead-dark">
+                              <tr>
+                                  <th>x1</th>
+                                  <th>x2</th>
+                                  <th>x3</th>
+                                  <th>x4</th>
+                                  <th>Sign</th>
+                                  <th>rez</th>
+                              </tr>
+                          </thead>
+                              <tr>
+                                  <td>@Html.EditorFor(m => m.dtVariables[0][0], new { htmlAttributes = new { @placeholder = "x1" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtVariables[0][1], new { htmlAttributes = new { @placeholder = "x2" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtVariables[0][2], new { htmlAttributes = new { @placeholder = "x3" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtVariables[0][3], new { htmlAttributes = new { @placeholder = "x4" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtSign[0], new { htmlAttributes = new { @placeholder = "Sign" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtB[0], new { htmlAttributes = new { @placeholder = "B" } })</td>
+                              </tr>
+                              <tr>
+                                  <td>@Html.EditorFor(m => m.dtVariables[1][0], new { htmlAttributes = new { @placeholder = "x1" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtVariables[1][1], new { htmlAttributes = new { @placeholder = "x2" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtVariables[1][2], new { htmlAttributes = new { @placeholder = "x3" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtVariables[1][3], new { htmlAttributes = new { @placeholder = "x4" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtSign[1], new { htmlAttributes = new { @placeholder = "Sign" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtB[1], new { htmlAttributes = new { @placeholder = "B" } })</td>
+                              </tr>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>x1</th>
+                                    <th>x2</th>
+                                    <th>x3</th>
+                                    <th>x4</th>
+                                    <th></th>
+                                    <th>Max?</th>
+                                </tr>
+                            </thead>
+                              <tr>
+                                  <td>@Html.EditorFor(m => m.dtFunctionVariables[0], new { htmlAttributes = new { @placeholder = "x1" }})</td>
+                                  <td>@Html.EditorFor(m => m.dtFunctionVariables[1], new { htmlAttributes = new { @placeholder = "x2" }})</td>
+                                  <td>@Html.EditorFor(m => m.dtFunctionVariables[2],new { htmlAttributes = new { @placeholder = "x3" } })</td>
+                                  <td>@Html.EditorFor(m => m.dtFunctionVariables[3],new { htmlAttributes = new { @placeholder = "x4" }})</td>
+                                  <td>-></td>
+                                  <td>
+                                      @Html.DropDownListFor(m=>m.isMax, new SelectList(selectedList), new { @class="opSelect" })
+                                  </td>
+                              </tr>
+                             
+                      </table>
+                          @Html.Hidden("Method", lang.Resource.method1)
+                          <input class="opButton" type="submit" value="@lang.Resource.accept" />
+                      }
+                  </div>
+                      </div>
+        <div class="row">
+            <div class="col-md-12">
+                @if (Model != null)
+                {
+                    var kolv=0;
+                    foreach (var snap in Model.result.Item1)
+                    {
+                <div class="main-title">
+                    <br /><br /><br />
+                    <h2>Итерация @(kolv++)</h2>
+                </div>
+                        
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>i</th>
+                                <th>Basis</th>
+                                <th>C</th>
+                                <th>B</th>
+                                @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
+                                {
+                                    <th>@($"A{i - 3}")</th>
+                                }
+                            </tr>
+                        </thead>
+                        @for(int i = 0; i < Model.result.Item1.First().C.Length; i++)
+                        {
+                        <tr>
+                            @for (int j = 0; j < Model.result.Item1.First().matrix.Length + 4; j++)
+                            {
+                                if (j == 0)
+                                {
+                                    <td>
+                                        @((i + 1).ToString())
+                                    </td>
+                                }
+                                else if (j == 1)
+                                {
+                                    <td>
+                                        @($"A{snap.C[i] + 1}")
+                                    </td>
+                                }
+                                else if (j == 2)
+                                {
+                                    <td>
+                                        @(snap.m[snap.C[i]] ? "-M" : $"{snap.fVars[snap.C[i]]}")
+                                    </td>
+                                }
+                                else if (j == 3)
+                                {
+                                    <td>
+                                        @(Math.Round(snap.b[i], 2).ToString())
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @(Math.Round(snap.matrix[j - 4][i], 2).ToString())
+                                    </td>
+                                }
+                            }
+                        </tr>
+                        }
+
+
+                        <tr>
+                            <td>m+1</td>
+                            <td>F</td>
+                            <td>deltaJ</td>
+                            <td>@snap.fValue</td>
+                            @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
+                            {
+                                <td>@Math.Round(snap.F[i - 4], 2)</td>
+                            }
+                        </tr>
+
+
+                        @if (!snap.isMDone)
+                        {
+                        <tr>
+                            <td>m+2</td>
+                            <td>M</td>
+                            <td>deltaJ</td>
+                            <td></td>
+                            @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
+                            {
+                                <td>@Math.Round(snap.M[i - 4])</td>
+                            }
+                        </tr>
+                        }
+                        <tr></tr>
+                    </table>
+                       
+                   
+                    }
+                     <div class="main-title">
+                         <br /><br />
+                        <h2>@lang.Resource.Result</h2>
+                        <table class="table table-hover">
+                            @for (int i = 0; i < Model.result.Item1.Last().C.Length; i++)
+                            {
+                                <tr>
+                                    <th>X@( Model.result.Item1.Last().C[i])</th>
+                                    <td>@(Math.Round(Model.result.Item1.Last().b[i],2))</td>
+                                </tr>
+                            }
+                            <tr>
+                                <th>@lang.Resource.Result</th>
+                                <td>@Model.result.Item1.Last().fValue</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                }
+            </div>
+
+        </div>
+              </div>
+</header>
+
