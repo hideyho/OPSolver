@@ -1,22 +1,28 @@
-﻿$(function () {
-    $('td').click(function (e) {
-        var t = e.target || e.srcElement;
-        var elm_name = t.tagName.toLowerCase();
-        if (elm_name == 'input') { return false; }
-        var val = $(this).html();
-        var code = '<input type="text" id="edit" value="" class="opInput"/>';
-        $(this).empty().append(code);
-        $('#edit').focus();
-        $('#edit').blur(function () {
-            var val = $(this).val();
-            $(this).parent().empty().html(val);
-        })
-       
-    });
+﻿document.body.onload = function () {
+    setTimeout(function () {
+        var preloader = document.getElementById('page-preloader');
+        if (!preloader.classList.contains('preloader-done')) {
+            preloader.classList.add('preloader-done');
+        }
+    }, 500);
+}
+$('a[href^="#"]').click(function () {
+    var margin = -100;
+    var target = $(this).attr('href');
+    $('html, body').animate({ scrollTop: $(target).offset().top }, 800);
+    return false;
 });
 
-$(window).keydown(function () {
-    if (event.keyCode == 13) {
-        $('#edit').blur();
-    }
+$('#page_btn').click(function () {
+    $('a#page_btn').addClass("active");
 });
+
+new fullpage('#fullpage', {
+    navigation: true,
+    responsiveWidth: 700,
+    anchors: ['home', 'about-us', 'contact'],
+    parallax: true,
+    onLeave: function (origin, destination, direction) {
+        console.log("leaving section" + origin.index);
+    },
+})

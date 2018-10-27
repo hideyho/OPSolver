@@ -97,11 +97,38 @@ namespace lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Базис.
+        /// </summary>
+        public static string Basis {
+            get {
+                return ResourceManager.GetString("Basis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Изменить.
+        /// </summary>
+        public static string Change {
+            get {
+                return ResourceManager.GetString("Change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Неизвестно.
         /// </summary>
         public static string cookieName {
             get {
                 return ResourceManager.GetString("cookieName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Свободные члены.
+        /// </summary>
+        public static string fMembers {
+            get {
+                return ResourceManager.GetString("fMembers", resourceCulture);
             }
         }
         
@@ -120,6 +147,15 @@ namespace lang {
         public static string Introduce {
             get {
                 return ResourceManager.GetString("Introduce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Итерация.
+        /// </summary>
+        public static string Iteration {
+            get {
+                return ResourceManager.GetString("Iteration", resourceCulture);
             }
         }
         
@@ -169,6 +205,15 @@ namespace lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Это не ваше имя ?.
+        /// </summary>
+        public static string NotYourName {
+            get {
+                return ResourceManager.GetString("NotYourName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Результат.
         /// </summary>
         public static string Result {
@@ -178,11 +223,29 @@ namespace lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Знак.
+        /// </summary>
+        public static string Sign {
+            get {
+                return ResourceManager.GetString("Sign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Статистика.
         /// </summary>
         public static string Statistic {
             get {
                 return ResourceManager.GetString("Statistic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добро пожаловать.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

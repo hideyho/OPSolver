@@ -1,8 +1,8 @@
 ﻿@font-face {
-    font-family: "Monsterrat";
-    src: url("../Reference/fonts/Montserrat-Black.ttf") format('truetype');
+    font-family: "Roboto";
+    src: url("../Reference/fonts/Roboto-Black.ttf") format('truetype');
     font-style: normal;
-    font-weight: normal;
+    font-weight: 900;
 }
 
 @font-face {

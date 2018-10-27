@@ -1,10 +1,13 @@
-﻿*,
-body{
-    top:0;
-    left:0;
+﻿body {
+    top: 0;
+    left: 0;
     padding: 0;
-    margin:0;
+    margin: 0;
     font-family: "Raleway";
+    background: url("../Reference/img/bg-about.png") repeat center top/cover;
+}
+*:hover{
+    transition:.1s;
 }
 
 a{
@@ -18,11 +21,65 @@ a:focus{
 ul{
     list-style:none;
 }
+header{
+    height: 100vh;
+    padding: 20em 0;
+}
+
+/*PreLoader*/
+
+.preloader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    background:#fff;
+    z-index: 10000;
+    transition: 1s all;
+    opacity: 1;
+    visibility:visible;
+}
+.preloader .loader{
+    width:75px;
+    height:75px;
+    border: 10px solid #000;
+    border-radius: 50%;
+    border-top-color:#ff5e01;
+    position:absolute;
+    left:50%;
+    top:50%;
+   transform: translate(-50%,-50%);
+   animation: .8s spin infinite linear;
+}
+.preloader-done{
+    opacity:0;
+    visibility:hidden;
+}
+
+
+
+@keyframes spin{
+    from{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    to{
+        transform:translate(-50%,-50%) rotate(360deg);
+    }
+}
+
 /*Form Items*/
-.opInput{
-    display:block;
+.opSelect {
+    border: none;
+    outline: none;
+    color: #ff5e01;
+    padding: 10px;
+}
+
+.opInput {
+    display: block;
     margin: 30px auto;
-    padding:10px;
+    padding: 10px;
     border: .5px solid rgba(0,0,0,.2);
     border-radius: 10px;
 }
@@ -38,14 +95,9 @@ ul{
     box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 .opButton:hover{
-    background-color: #ff5e35;
-    box-shadow: 0 0 15px rgba(0,0,0,1);
+    box-shadow: 0 0 5px rgba(0,0,0,1);
 }
-.opSelect{
-    float:left;
-    border: none;
-    margin: 7px 0;
-    color: #ff5e01;
+table{
 }
 table input{
     width: 50px;
@@ -59,90 +111,88 @@ table td:last-child input{
 
 /*Layout*/
 nav{
-    padding: 50px 0;
-    width: 100%;
-    top:0;
-    left:0;
-    position:fixed;
-    background-color:#fff;
-    z-index:999;
-}
-nav .menu{
-    width: 100%;
-    text-align:center;
-}
-nav .menu>li{
-    text-align:center;
-    display:inline-block;
-    margin:0;
-}
-nav .menu>li a{
-    line-height: 70px;
-    padding: 10px 10px;
-}
-nav .menu>li a:hover,
-nav .menu>li a:active{
-    color:#ff5e01;
-    transition: .2s;
+    line-height: 55px;
 }
 
-.ico{
+.navbar-brand img{
     height: 50px;
-    display:inline;
     float:left;
     margin-right: -10px;
+    margin-top: .3rem;
 }
-.ico-title {
+.navbar-brand p{
     font-size: 40px;
-    line-height: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: sans-serif;
     font-weight: 900;
     letter-spacing: -5px;
+    margin-bottom: .8rem;
 }
-.username{
-    line-height: 50px;
-    float:right;
-    padding: 10px 0;
-    margin: 0;
+.nav-link:hover,
+.nav-link:focus{
+    color:#ff5e01;
 }
-.lang{
-    
-    margin: 0;
-    padding: 8.5px 0;
+.dropdown-item:hover {
+    background-color: #ff5e01;
+    color: #fff;
+}
+.navbar-toggler {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: #ff5e01;
+}
+.navbar-toggler i{
+    color: #ff5e01;
 }
 
-.submenu {
-    position: absolute;
-    left: auto;
-    top: auto;
-    background-color:#ff5e01;
-    display:none;
-    
-}
-.submenu>li{
-    padding: 0 10px;
+/*About*/
+.about{
+    height: 90vh;
+    padding: 0;
+    background: url("../Reference/img/about-header.jpeg") no-repeat center;
+    background-position-y: center;
+    background-attachment: fixed;
     color: #fff;
     
 }
-.submenu>li>a{
-    color:#fff;
-}
-.submenu li:hover{
-    background-color:#000;
-    color:#fff;
-    transition: .3s;
-}
-.method:hover .submenu {
-    display:block;
-}
-
-/*Index*/
-header{
-    height:100vh;
+.about .about-wrapper{
+    height: 100%;
     width: 100%;
-    padding: 300px 0;
+    padding: 15em 0;
+    background-color: rgba(0,0,0,.5);
 }
-.main-title{
-    text-align: center;
-    margin:auto;
+.about-nav{
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 0 15px rgba(0,0,0,.5);
+}
+.about h1{
+    font-size: 80px;
+}
+section:not(.simp){
+    padding: 100px 0;
+
+}
+.orange {
+    color:#ff5e01;
+}
+h3{
+    margin: 10px 0;
+}
+.btn-opAdv{
+    color:#ff5e01;
+    border-color:#ff5e01;
+}
+.btn-opAdv:focus,
+.btn-opAdv:hover,
+.btn-opAdv:active{
+    color:#fff;
+    background-color:#ff5e01 !important;
+     border-color:#ff5e01;
+     outline:#ff5e01;
+     box-shadow: #ff5e01 !important;
+     
+}
+section{
+    height: 100vh;
 }

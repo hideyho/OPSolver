@@ -63,6 +63,7 @@ namespace opSolver.WEB.Controllers
             return View();
                 
         }
+
         //Simplex
         public ActionResult Simplex()
         {
@@ -78,6 +79,12 @@ namespace opSolver.WEB.Controllers
             catch (Exception) { }
             
             return View(item);
+        }
+        
+        //About
+        public ActionResult About()
+        {
+            return View();
         }
 
     }

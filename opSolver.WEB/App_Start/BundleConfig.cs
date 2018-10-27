@@ -13,7 +13,9 @@ namespace opSolver.WEB
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
-
+            bundles.Add(new ScriptBundle("~/bundles/script").Include(
+                        "~/Scripts/fullpage.js",
+                        "~/Scripts/Scripts.js"));
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
             // готово к выпуску, используйте средство сборки по адресу https://modernizr.com, чтобы выбрать только необходимые тесты.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -28,7 +30,8 @@ namespace opSolver.WEB
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/fonts.css",
-                      "~/Content/css/font-awesome.css"));
+                      "~/Content/css/font-awesome.css",
+                      "~/Content/fullpage.css"));
         }
     }
 }

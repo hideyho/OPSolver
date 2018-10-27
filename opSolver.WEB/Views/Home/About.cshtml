@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+
+<div id="fullpage">
+    <header class="about section">
+        <div class="about-wrapper">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h1 class="text-center">@lang.Resource.Welcome,<span class="orange">@Request.Cookies["userName"].Value</span> </h1>
+                    <div class="w-100"></div>
+                    <h4 class="text-center">Этот проект был разработан для решения конкретной задачи на оптимизацию, о которой ты можешь узнать ниже. Здесь представлены: Постановка задачи; Описание и инструкция по применению Симплекс/Генетического метода, а также об авторе и контакты для связи. Для просмотра интересующей информацией, щелкни на одно из меню ниже</h4>
+                    <div class="w-100"></div>
+                    <ul class="nav about-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#form-problem">Постановка задачи</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Симплекс-метод</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Генетический метод</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Обо мне</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="form-problem" class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h1>Постановка задачи</h1>
+                <p>
+                    В планируемом периоде производственное объединение (ПО), состоящее из четырех филиалов, должно обеспечить производство не менее <span class="orange">30</span>  тыс. шт. новых изделий. Для освоения производства этого нового вида изде-лий ПО выделяет вложения в размере <span class="orange"> 2,8</span> млн ден. ед. Каждый филиал разработал свой проект освоения нового изделия, который характеризуется величинами удельных капитальных затрат и себестоимостью на единицу продукции (дан-ные в таблице). Изделие планируется продавать по цене <span class="orange"> 105 </span>ден. ед./шт. <br />
+                    При каком варианте распределения по филиалам объемов производства продукции и капитальных вложений ПО будет иметь максимальную прибыль?
+                </p>
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th scope="col" rowspan="2">Показатель</th>
+                        <th scope="col" colspan="4">№ филиала</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Себестоимость, ден. ед./шт.</th>
+                        <td>83</td>
+                        <td>89</td>
+                        <td>95</td>
+                        <td>98</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Удельные капитальные затраты, ден. ед./шт.</th>
+                        <td>120</td>
+                        <td>90</td>
+                        <td>80</td>
+                        <td>70</td>
+                    </tr>
+
+                </table>
+
+                <h3>Дополнительные условия</h3>
+                <div class="w-100"></div>
+                <p>
+                    Как изменятся оптимальное распределение объемов производства и капи-тальных вложений, если:
+                    <br />
+                    а) за счет внутренних резервов i-й филиал (i=1 – 4) снизит себестоимость единицы продукции на <span class="orange">5 %</span> ;
+                    <br />
+                    б) за счет внутренних резервов i-й филиал уменьшит удельные капиталь-ные затраты на <span class="orange">5 %</span>;
+                    <br />
+                    в) из-за конкуренции на рынке изделие будет продаваться по цене <span class="orange">100</span> ден. ед./шт.?
+                </p>
+                <div class="w-100"></div>
+                <h3> Математическая модель </h3>
+                <div class="w-100"></div>
+                <p>
+                    <button class="btn btn-outline-primary btn-opAdv" type="button" data-toggle="collapse" data-target="#collapseMath" aria-expanded="false" aria-controls="collapseMath">Основная</button>
+                    <button class="btn btn-outline-primary btn-opAdv" type="button" data-toggle="collapse" data-target="#collapseMathA" aria-expanded="false" aria-controls="collapseMathA">Условие А</button>
+                    <button class="btn btn-outline-primary btn-opAdv" type="button" data-toggle="collapse" data-target="#collapseMathB" aria-expanded="false" aria-controls="collapseMathB">Условие Б</button>
+                    <button class="btn btn-outline-primary btn-opAdv" type="button" data-toggle="collapse" data-target="#collapseMathC" aria-expanded="false" aria-controls="collapseMathC">Условие В</button>
+                </p>
+                <div class="w-100"></div>
+                <div class="collapse" id="collapseMath">
+                    <div class="card card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th scope="row">f(X)</th>
+                                <td>(105-83)x1+(105-89)x2+(105-95)x3+(105-98)x4->max</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 1</th>
+                                <td>x1+x2+x3+x4>=30000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 2</th>
+                                <td>120x1+90x2+80x3+70x4<=2800000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Доп. ограничения</th>
+                                <td>x1,x2,x3,x4 = целое</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMathA">
+                    <div class="card card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th scope="row">f(X)</th>
+                                <td>(105-83<span class="orange">-5%</span>)x1+(105-89<span class="orange">-5%</span>)x2+(105-95<span class="orange">-5%</span>)x3+(105-98<span class="orange">-5%</span>)x4->max</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 1</th>
+                                <td>x1+x2+x3+x4>=30000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 2</th>
+                                <td>120x1+90x2+80x3+70x4<=2800000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Доп. ограничения</th>
+                                <td>x1,x2,x3,x4 = целое</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMathB">
+                    <div class="card card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th scope="row">f(X)</th>
+                                <td>(105-83)x1+(105-89)x2+(105-95)x3+(105-98)x4->max</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 1</th>
+                                <td>x1+x2+x3+x4>=30000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 2</th>
+                                <td>1203<span class="orange">-5%</span>x1+903<span class="orange">-5%</span>x2+803<span class="orange">-5%</span>x3+70x4<=2800000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Доп. ограничения</th>
+                                <td>x1,x2,x3,x4 = целое</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMathC">
+                    <div class="card card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th scope="row">f(X)</th>
+                                <td>(<span class="orange">100</span>-83)x1+(<span class="orange">100</span>-89)x2+(<span class="orange">100</span>-95)x3+(<span class="orange">100</span>-98)x4->max</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 1</th>
+                                <td>x1+x2+x3+x4>=30000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ограничение 2</th>
+                                <td>120x1+90x2+80x3+70x4<=2800000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Доп. ограничения</th>
+                                <td>x1,x2,x3,x4 = целое</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section"></section>
+</div>

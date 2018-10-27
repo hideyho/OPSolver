@@ -159,4 +159,25 @@
   <data name="Result" xml:space="preserve">
     <value>Результат</value>
   </data>
+  <data name="Change" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
+  <data name="NotYourName" xml:space="preserve">
+    <value>Это не ваше имя ?</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Добро пожаловать</value>
+  </data>
+  <data name="Basis" xml:space="preserve">
+    <value>Базис</value>
+  </data>
+  <data name="fMembers" xml:space="preserve">
+    <value>Свободные члены</value>
+  </data>
+  <data name="Iteration" xml:space="preserve">
+    <value>Итерация</value>
+  </data>
+  <data name="Sign" xml:space="preserve">
+    <value>Знак</value>
+  </data>
 </root>
