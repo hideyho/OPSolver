@@ -1,7 +1,4 @@
-﻿@{ 
-    var cookie = Request.Cookies["userName"];
-    var value = (cookie == null) ? lang.Resource.cookieName : cookie.Value;
-}
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,10 +42,16 @@
                     </li>
                 </ul>
             </div>
+            <div class="dropdown">
+                <a class="navbar-text ml-auto nav-link dropdown-toggle" href="#" id="logout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @User.Identity.Name
+                </a>
+                <div class="dropdown-menu" aria-labelledby="logout">
+                    @Html.ActionLink("logout","Logout","Account","", new { @class = "dropdown-item" })
 
-            <span class="navbar-text ml-auto">
-                @value |
-            </span>
+                </div>
+            </div>
+            
 
 
             @using (Html.BeginForm("ChangeCulture", "Home"))

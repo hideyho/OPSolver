@@ -15,6 +15,6 @@ namespace opSolver.DAL.Entities
         public double x3 { get; set; }
         public double x4 { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

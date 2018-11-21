@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathParser.org-mXparser, Version=4.2.0.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathParser.org-mXparser.4.2.2\lib\net461\MathParser.org-mXparser.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Methods\Genetic\GData.cs" />
+    <Compile Include="Methods\Genetic\Model\Child.cs" />
+    <Compile Include="Methods\Genetic\Model\Limit.cs" />
+    <Compile Include="Methods\Genetic\Services\Solver.cs" />
     <Compile Include="Methods\Simplex\Model\Constraint.cs" />
     <Compile Include="Methods\Simplex\Model\Function.cs" />
     <Compile Include="Methods\Simplex\Model\Problem.cs" />
@@ -51,6 +58,10 @@
     <Compile Include="Methods\Simplex\Services\ProblemsService.cs" />
     <Compile Include="Methods\Simplex\Services\Simplex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

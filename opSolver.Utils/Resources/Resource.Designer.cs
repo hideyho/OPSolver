@@ -79,6 +79,15 @@ namespace lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Адрес.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Возраст.
         /// </summary>
         public static string Age {
@@ -120,6 +129,15 @@ namespace lang {
         public static string cookieName {
             get {
                 return ResourceManager.GetString("cookieName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
@@ -169,6 +187,15 @@ namespace lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Авторизация.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Метод.
         /// </summary>
         public static string Method {
@@ -210,6 +237,24 @@ namespace lang {
         public static string NotYourName {
             get {
                 return ResourceManager.GetString("NotYourName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Регистрация.
+        /// </summary>
+        public static string Registration {
+            get {
+                return ResourceManager.GetString("Registration", resourceCulture);
             }
         }
         

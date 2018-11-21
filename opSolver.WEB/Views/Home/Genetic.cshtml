@@ -1,0 +1,17 @@
+﻿@model opSolver.OPS.Methods.Genetic.GData
+@{
+    ViewBag.Title = "Genetic";
+    var selectedList = new List<bool> { true, false };
+}
+
+<header>
+    <div class="container">
+        <div class="row justify-content-center">
+            @using (Html.BeginForm("Genetic", "Home", FormMethod.Post))
+            {
+                <button type="submit" class="form-control opButton">Submit</button>
+            }
+        </div>
+    </div>
+</header>
+

@@ -7,10 +7,11 @@ using opSolver.DAL.Entities;
 using opSolver.DAL.Interfaces;
 using opSolver.WEB.Utils;
 using opSolver.OPS.Methods.Simplex;
-
+using opSolver.OPS.Methods.Genetic;
 
 namespace opSolver.WEB.Controllers
 {
+    [Authorize]
     [Culture]
     public class HomeController : Controller
     {
@@ -48,17 +49,17 @@ namespace opSolver.WEB.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(User item)
+        public ActionResult Index(ApplicationUser item)
         {
             
             if (ModelState.IsValid)
             {
 
-                db.Users.Create(item);
+                //db.Users.Create(item);
                 db.Save();
 
-                Response.SetCookie(new HttpCookie("userName") {Value = item.Name });
-                Response.SetCookie(new HttpCookie("userID") { Value = Convert.ToString(item.Id)});
+                //Response.SetCookie(new HttpCookie("userName") {Value = item.Name });
+                //Response.SetCookie(new HttpCookie("userID") { Value = Convert.ToString(item.Id)});
             }
             return View();
                 
@@ -78,6 +79,39 @@ namespace opSolver.WEB.Controllers
             }
             catch (Exception) { }
             
+            return View(item);
+        }
+
+        //Genetic
+        public ActionResult Genetic()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Genetic(GData item)
+        {
+            item = new GData
+            {
+                population = 50,
+                isMax = true,
+                minValue = 0,
+                maxValue = 30000,
+                function = "(105-83)*x1+(105-89)*x2+(105-95)*x3+(105-98)*x4",
+                limit1 = new OPS.Methods.Genetic.Model.Limit
+                {
+                    function = "x1+x2+x3+x4",
+                    sign = ">=",
+                    limitResult = 30000
+                },
+                limit2 = new OPS.Methods.Genetic.Model.Limit
+                {
+                    function = "120*x1+90*x2+80*x3+70*x4",
+                    sign = "<=",
+                    limitResult = 2800000
+                },
+                iterations = 10
+            };
+            item.Solve();
             return View(item);
         }
         

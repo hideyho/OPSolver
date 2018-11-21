@@ -1,4 +1,4 @@
-﻿@model opSolver.DAL.Entities.User
+﻿
 @{
     ViewBag.Title = "Home Page";
 }
@@ -23,7 +23,7 @@
                     </h4>
                 }
             </div>
-            <div class="w-100"></div>
+            @*<div class="w-100"></div>
             @using (Html.BeginForm("Index", "Home", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
@@ -33,7 +33,7 @@
                 @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "opInput", @placeholder = lang.Resource.Age } })
                 @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
                 <input class="opButton" type="submit" value="@lang.Resource.accept" />
-            }
+            }*@
         </div>
     </div> 
 </header>

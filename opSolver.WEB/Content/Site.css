@@ -97,8 +97,7 @@ header{
 .opButton:hover{
     box-shadow: 0 0 5px rgba(0,0,0,1);
 }
-table{
-}
+
 table input{
     width: 50px;
     height: 50px;
@@ -108,6 +107,14 @@ table td:last-child input{
     width: 150px;
 }
 
+.btn-split{
+    color: #ff5e01;
+   
+
+}
+.active {
+    border-bottom: 2px solid #ff5e01;
+}
 
 /*Layout*/
 nav{
@@ -195,4 +202,52 @@ h3{
 }
 section{
     height: 100vh;
+}
+
+/*Login-Registration*/
+.logreg{
+    padding: 0;
+
+}
+.logreg .container-fluid{
+    height: 100vh;
+}
+.login-info{
+    background: url("../Reference/img/login.jpeg") no-repeat center top/cover;
+    
+    box-shadow: 1px 0 20px #ff5e01;
+}
+.login-info-wrapper{
+    background-color: rgba(0,0,0,.4);
+    padding: 30% 0;
+    color: #fff;
+    height: 100vh;
+}
+.login-form{
+    padding: 10% 10%;
+
+}
+.login-form form{
+    margin: 0 auto;
+}
+.logreg img{
+    height: 10em;
+}
+
+.logreg h1{
+    font-size: 80px;
+}
+
+
+
+
+
+
+
+
+@media(max-width: 992px){
+    .login-info{
+        display: none;
+    }
+
 }
