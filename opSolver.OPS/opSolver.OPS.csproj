@@ -47,7 +47,6 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Methods\Genetic\GData.cs" />
     <Compile Include="Methods\Genetic\Model\Child.cs" />
-    <Compile Include="Methods\Genetic\Model\Limit.cs" />
     <Compile Include="Methods\Genetic\Services\Solver.cs" />
     <Compile Include="Methods\Simplex\Model\Constraint.cs" />
     <Compile Include="Methods\Simplex\Model\Function.cs" />

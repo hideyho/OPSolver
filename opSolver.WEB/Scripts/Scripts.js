@@ -13,16 +13,18 @@ $('a[href^="#"]').click(function () {
     return false;
 });
 
-$('#page_btn').click(function () {
-    $('a#page_btn').addClass("active");
-});
-
-new fullpage('#fullpage', {
-    navigation: true,
-    responsiveWidth: 700,
-    anchors: ['home', 'about-us', 'contact'],
-    parallax: true,
-    onLeave: function (origin, destination, direction) {
-        console.log("leaving section" + origin.index);
-    },
-})
+var scrolled;
+if ($('header').is('#index')) {
+    window.onscroll = function () {
+        scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled > 200) {
+            $("nav").addClass("whiteNav");
+        }
+        if (200 > scrolled) {
+            $("nav").removeClass("whiteNav");
+        }
+    }
+}
+else {
+    $("nav").addClass("whiteNav");
+}

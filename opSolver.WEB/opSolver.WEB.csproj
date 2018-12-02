@@ -211,10 +211,6 @@
     <Compile Include="Utils\opModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\opDB.mdf" />
-    <Content Include="App_Data\opDB_log.ldf">
-      <DependentUpon>opDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -230,7 +226,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Reference\img\about-header.jpeg" />
+    <Content Include="Reference\img\bg-about.png" />
     <Content Include="Reference\img\down-arrow.png" />
+    <Content Include="Reference\img\down-arrow.svg" />
     <Content Include="Reference\img\icon.jpg" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -245,6 +244,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Reference\img\login.jpeg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -317,7 +317,9 @@
     <Content Include="Views\Home\Genetic.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />

@@ -21,14 +21,53 @@ namespace opSolver.WEB.Controllers
             db = uof;
         }
 
+        //Simplex General
+        SData item = new SData()
+        {
+            dtVariables =
+                {
+
+                    new List<double>(){120,90,80,70},
+                    new List<double>(){1,1,1,1}
+                },
+            dtSign =
+                {
+                    "<=",
+                    ">="
+                },
+            dtB =
+                {
+                    2800000,
+                    30000
+                },
+            dtFunctionVariables =
+                {
+                    105-83, 105-89, 105-95, 105-98
+                },
+            isMax = true
+        };
+        //Genetic general
+        GData gitem = new GData()
+        {
+            population = 100,
+            iterations = 50,
+            kf = new List<List<double>>()
+            {
+                new List<double>(){105-83,105-89,105-95, 105-98},
+                 new List<double>(){1,1,1,1,30000},
+                new List<double>(){120,90,80,70,2800000}
+
+            }
+        };
+
         //Culture
-       
+
         public ActionResult ChangeCulture(string lang)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
             List<string> cultures = new List<string>() { "ru", "en" };
             if (!cultures.Contains(lang))
-                lang = "ru";
+                lang = "en";
             HttpCookie cookie = Request.Cookies["lang"];
             if (cookie != null)
                 cookie.Value = lang;
@@ -81,6 +120,48 @@ namespace opSolver.WEB.Controllers
             
             return View(item);
         }
+        [HttpPost]
+        public ActionResult SimplexGeneral(SData item)
+        {
+            item = this.item;
+            item.Solve();
+            return View("Simplex", item);
+        }
+        [HttpPost]
+        public ActionResult Simplex1(SData item)
+        {
+            item = this.item;
+            item.dtFunctionVariables = new List<double>
+            {
+                105-83-83*0.05, 105-89-89*0.05, 105-95-95-0.05, 105-98-98*0.05
+            };
+          
+            item.Solve();
+            return View("Simplex", item);
+        }
+        [HttpPost]
+        public ActionResult Simplex2(SData item)
+        {
+            item = this.item;
+            item.dtVariables = new List<List<double>>
+            {
+                new List<double>(){120-120*0.05,90-90*0.05,80-80*0.05,70-70*0.05},
+                new List<double>(){1,1,1,1}
+            };
+           
+            item.Solve();
+            return View("Simplex", item);
+        }
+        public ActionResult Simplex3(SData item)
+        {
+            item = this.item;
+            item.dtFunctionVariables = new List<double>
+            {
+                100-83, 100-89, 100-95, 100-98
+            };
+            item.Solve();
+            return View("Simplex", item);
+        }
 
         //Genetic
         public ActionResult Genetic()
@@ -90,31 +171,38 @@ namespace opSolver.WEB.Controllers
         [HttpPost]
         public ActionResult Genetic(GData item)
         {
-            item = new GData
-            {
-                population = 50,
-                isMax = true,
-                minValue = 0,
-                maxValue = 30000,
-                function = "(105-83)*x1+(105-89)*x2+(105-95)*x3+(105-98)*x4",
-                limit1 = new OPS.Methods.Genetic.Model.Limit
-                {
-                    function = "x1+x2+x3+x4",
-                    sign = ">=",
-                    limitResult = 30000
-                },
-                limit2 = new OPS.Methods.Genetic.Model.Limit
-                {
-                    function = "120*x1+90*x2+80*x3+70*x4",
-                    sign = "<=",
-                    limitResult = 2800000
-                },
-                iterations = 10
-            };
             item.Solve();
             return View(item);
         }
-        
+        [HttpPost]
+        public ActionResult GeneticGeneral(GData item)
+        {
+            item = gitem;
+            item.Solve();
+            return View("Genetic",item);
+        }
+        public ActionResult Genetic1(GData item)
+        {
+            item = gitem;
+            item.kf[0] = new List<double>() { 105 - 83 - 83 * 0.05, 105 - 89 - 89 * 0.05, 105 - 95 -95- 0.05, 105 - 98 - 98 * 0.05 };
+            item.Solve();
+            return View("Genetic", item);
+        }
+        public ActionResult Genetic2(GData item)
+        {
+            item = gitem;
+            item.kf[2] = new List<double>() { 120 - 120 * 0.05, 90 - 90 * 0.05, 80 - 80 * 0.05, 70 - 70 * 0.05, 2800000 };
+            item.Solve();
+            return View("Genetic", item);
+        }
+        public ActionResult Genetic3(GData item)
+        {
+            item = gitem;
+            item.kf[0] = new List<double>() { 100 - 83, 100 - 89, 100 - 95, 100 - 98 };
+            item.Solve();
+            return View("Genetic", item);
+        }
+
         //About
         public ActionResult About()
         {

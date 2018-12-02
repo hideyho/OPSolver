@@ -6,81 +6,72 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+   
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="container fixed-top" style="background-color: #fff; border-radius:50px; margin-top: 10px;">
-        <nav class="navbar navbar-expand-lg">
-
-
-
-            <a href="@Url.Action("Index")" class="navbar-brand">
-                <img src="~/Reference/img/icon.jpg" alt="logo" />
-                <p>Solver</p>
-            </a>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @lang.Resource.Method
-                           
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @Html.ActionLink(lang.Resource.method1, "Simplex", null, new { @class = "dropdown-item" })
-                            <a class="dropdown-item" href="#">@lang.Resource.method2</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">@lang.Resource.Statistic</a>
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink(lang.Resource.About, "About", null, new {@class = "nav-link" })
-                    </li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <a class="navbar-text ml-auto nav-link dropdown-toggle" href="#" id="logout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @User.Identity.Name
-                </a>
-                <div class="dropdown-menu" aria-labelledby="logout">
-                    @Html.ActionLink("logout","Logout","Account","", new { @class = "dropdown-item" })
-
-                </div>
-            </div>
-            
-
-
-            @using (Html.BeginForm("ChangeCulture", "Home"))
-            {
-                <select onchange="this.form.submit()" class="opSelect" name="lang">
-                    <option disabled selected>@lang.Resource.lang</option>
-                    <option value="ru">RU</option>
-                    <option value="en">EN</option>
-                </select>
-            }
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-
-        </nav>
-    </div>
-    @*<div class="radio-btns">
-        <a id="page_btn p1" class=" active" href=""><i class="fa fa-circle-o"></i></a>
-        <a id="page_btn p2" href="#form-problem"><i class="fa fa-circle-o"></i></a>
-        <a id="page_btn p3" href="#"><i class="fa fa-circle-o"></i></a>
-    </div>*@
-
     <div id="page-preloader" class="preloader">
         <div class="loader">
         </div>
     </div>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top justify-content-center">
+        <ul class="nav">
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Methods
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @Html.ActionLink("Simplex", "Simplex", "Home", new { @class = "dropdown-item" })
+                    <a href="@Url.Action("Genetic","Home")" class="dropdown-item">Genetic<span class="beta">Beta</span></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index","Home")" class="navbar-brand nav-link" style="color:#ff6a00;">
+                    OPSolver
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link disabled">Statistics</a>
+            </li>
+        </ul>
 
-    @RenderBody()
+        <ul class="nav right-bar">
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @User.Identity.Name
+                </a>
+                <div class="dropdown-menu" aria-labelledby="userDropdown">
+                    <a href="@Url.Action("Logout","Account")" class="dropdown-item">Logout</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <p class="nav-link vLine">|</p>
+            </li>
+           
+            <li class="nav-item">
+                @using (Html.BeginForm("ChangeCulture", "Home"))
+                {
+                    <select onchange="this.form.submit()" class="custom-select-lg select-ops" name="lang">
+                        <option disabled selected>@lang.Resource.lang</option>
+                        <option value="ru">RU</option>
+                        <option value="en">EN</option>
+                    </select>
+                }
+            </li>
+     
+     
+        </ul>
+    </nav>
+
+
+    <main>
+        @RenderBody()
+    </main>
+  
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/script")

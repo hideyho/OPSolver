@@ -5,12 +5,23 @@
 
 }
 
-<header>
+<header class="header-simplex">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="text-center">
+            <div class="section-title">
                 <h1>@lang.Resource.method1</h1>
             </div>
+            <div class="w-100"></div>
+            <p>
+                @using (Html.BeginForm("SimplexGeneral", "Home", FormMethod.Post))
+                {<button type="submit" class="btn btn-outline-primary btn-ops">@lang.Resource.general</button>}
+                @using (Html.BeginForm("Simplex1", "Home", FormMethod.Post))
+                {<button type="submit" class="btn btn-outline-primary btn-ops">@lang.Resource.condition1</button>}
+                @using (Html.BeginForm("Simplex2", "Home", FormMethod.Post))
+                {<button type="submit" class="btn btn-outline-primary btn-ops">@lang.Resource.condition2</button>}
+                @using (Html.BeginForm("Simplex3", "Home", FormMethod.Post))
+                {<button type="submit" class="btn btn-outline-primary btn-ops">@lang.Resource.condition3</button>}
+            </p>
             <div class="w-100"></div>
             @using (Html.BeginForm("Simplex", "Home", FormMethod.Post))
             {
@@ -67,8 +78,12 @@
 
                 </table>
                 @Html.Hidden("Method", lang.Resource.method1)
-                <input class="opButton" type="submit" value="@lang.Resource.accept" />
+                <button class="btn btn-outline-primary btn-ops" type="submit">
+                    @lang.Resource.submit
+                </button>
+
             }
+           
         </div>
     </div>
     @if (Model != null)
@@ -78,101 +93,103 @@
         </div>
     }
 </header>
-<section class="simp">
-    @if (Model != null)
-    {
-        var kolv = 0;
+@if (Model != null)
+{
+    var kolv = 0;
+    <section class="simp">
+
+
         <div class="container">
             <div class="row justify-content-center">
 
-               
+
                 <div class="w-100"></div>
                 @foreach (var snap in Model.result.Item1)
                 {
 
-                <h2 id="iter" class="text-center"> @(lang.Resource.Iteration+" "+kolv++)</h2>
+                    <h2 id="iter" class="text-center"> @(lang.Resource.Iteration + " " + kolv++)</h2>
 
 
-                <table class="table table-bordered">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>i</th>
-                            <th>@lang.Resource.Basis</th>
-                            <th>C</th>
-                            <th>B</th>
-                            @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
-                            {
-                                <th>@($"A{i - 3}")</th>
-                            }
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.result.Item1.First().C.Length; i++)
-                    {
-                        <tr>
-                            @for (int j = 0; j < Model.result.Item1.First().matrix.Length + 4; j++)
-                            {
-                                if (j == 0)
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>i</th>
+                                <th>@lang.Resource.Basis</th>
+                                <th>C</th>
+                                <th>B</th>
+                                @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
                                 {
-                                    <td>
-                                        @((i + 1).ToString())
-                                    </td>
+                                    <th>@($"A{i - 3}")</th>
                                 }
-                                else if (j == 1)
-                                {
-                                    <td>
-                                        @($"A{snap.C[i] + 1}")
-                                    </td>
-                                }
-                                else if (j == 2)
-                                {
-                                    <td>
-                                        @(snap.m[snap.C[i]] ? "-M" : $"{snap.fVars[snap.C[i]]}")
-                                    </td>
-                                }
-                                else if (j == 3)
-                                {
-                                    <td>
-                                        @(Math.Round(snap.b[i], 2).ToString())
-                                    </td>
-                                }
-                                else
-                                {
-                                    <td>
-                                        @(Math.Round(snap.matrix[j - 4][i], 2).ToString())
-                                    </td>
-                                }
-                            }
-                        </tr>
-                    }
-
-
-                    <tr>
-                        <td>m+1</td>
-                        <td>F</td>
-                        <td>deltaJ</td>
-                        <td>@snap.fValue</td>
-                        @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
+                            </tr>
+                        </thead>
+                        @for (int i = 0; i < Model.result.Item1.First().C.Length; i++)
                         {
-                            <td>@Math.Round(snap.F[i - 4], 2)</td>
+                            <tr>
+                                @for (int j = 0; j < Model.result.Item1.First().matrix.Length + 4; j++)
+                                {
+                                    if (j == 0)
+                                    {
+                                        <td>
+                                            @((i + 1).ToString())
+                                        </td>
+                                    }
+                                    else if (j == 1)
+                                    {
+                                        <td>
+                                            @($"A{snap.C[i] + 1}")
+                                        </td>
+                                    }
+                                    else if (j == 2)
+                                    {
+                                        <td>
+                                            @(snap.m[snap.C[i]] ? "-M" : $"{snap.fVars[snap.C[i]]}")
+                                        </td>
+                                    }
+                                    else if (j == 3)
+                                    {
+                                        <td>
+                                            @(Math.Round(snap.b[i], 2).ToString())
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            @(Math.Round(snap.matrix[j - 4][i], 2).ToString())
+                                        </td>
+                                    }
+                                }
+                            </tr>
                         }
-                    </tr>
 
 
-                    @if (!snap.isMDone)
-                    {
                         <tr>
-                            <td>m+2</td>
-                            <td>M</td>
+                            <td>m+1</td>
+                            <td>F</td>
                             <td>deltaJ</td>
-                            <td></td>
+                            <td>@snap.fValue</td>
                             @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
                             {
-                                <td>@Math.Round(snap.M[i - 4])</td>
+                                <td>@Math.Round(snap.F[i - 4], 2)</td>
                             }
                         </tr>
-                    }
-                    <tr></tr>
-                </table>
+
+
+                        @if (!snap.isMDone)
+                        {
+                            <tr>
+                                <td>m+2</td>
+                                <td>M</td>
+                                <td>deltaJ</td>
+                                <td></td>
+                                @for (int i = 4; i < Model.result.Item1.First().matrix.Length + 4; i++)
+                                {
+                                    <td>@Math.Round(snap.M[i - 4])</td>
+                                }
+                            </tr>
+                        }
+                        <tr></tr>
+                    </table>
 
 
                 }
@@ -195,6 +212,6 @@
 
             </div>
         </div>
-    }
-</section>
 
+    </section>
+}

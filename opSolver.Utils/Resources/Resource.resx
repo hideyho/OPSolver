@@ -117,82 +117,116 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>О программе</value>
+  <data name="additional" xml:space="preserve">
+    <value>How will the optimal distribution of production volumes and capital investments change if:
+                
+                a) due to internal reserves, i-th branch (i = 1 - 4) will reduce the unit cost of production by  5% 
+                
+                b) at the expense of internal reserves, the i-th branch will reduce the specific capital costs by &lt;span class="orange"&gt; 5% &lt;/span&gt;
+                
+                c) due to competition in the market, the product will be sold at a price of 100  den. units / pcs?</value>
   </data>
-  <data name="forStatistic" xml:space="preserve">
-    <value>Это нужно для статистики</value>
+  <data name="additional_terms" xml:space="preserve">
+    <value>Additional terms</value>
   </data>
-  <data name="Introduce" xml:space="preserve">
-    <value>Пожалуйста, представьтесь</value>
+  <data name="app_description" xml:space="preserve">
+    <value>The application was developed as a course project on "optimizing design solutions" for finding a solution to optimizing a specific task (described on the main page). Author: Dunko Egor</value>
   </data>
-  <data name="Method" xml:space="preserve">
-    <value>Метод</value>
+  <data name="branch" xml:space="preserve">
+    <value>№ of branch</value>
   </data>
-  <data name="Statistic" xml:space="preserve">
-    <value>Статистика</value>
+  <data name="condition1" xml:space="preserve">
+    <value>Cost price -5%</value>
   </data>
-  <data name="cookieName" xml:space="preserve">
-    <value>Неизвестно</value>
+  <data name="condition2" xml:space="preserve">
+    <value>Capital expenditures -5%</value>
+  </data>
+  <data name="condition3" xml:space="preserve">
+    <value>Item price 100</value>
+  </data>
+  <data name="cost" xml:space="preserve">
+    <value>Cost, cash units / pcs.</value>
+  </data>
+  <data name="formulation" xml:space="preserve">
+    <value>In the planned period, the production association (PO), consisting of four branches, must ensure production of at least  30  thousand pieces. new products. For mastering the production of this new type of software, software allocates investments in the amount of  2.8  million den. units Each branch has developed its own project for the development of a new product, which is characterized by the values ​​of specific capital costs and cost per unit of production (data in the table). The product is planned to be sold at a price  105 den. unit / piece 
+                Under what option of distribution to branches the production volumes and capital investments of software will have the maximum profit?</value>
+  </data>
+  <data name="form_problem" xml:space="preserve">
+    <value>Formulation of the problem</value>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="indicator" xml:space="preserve">
+    <value>Indicator</value>
+  </data>
+  <data name="int_" xml:space="preserve">
+    <value>integer</value>
+  </data>
+  <data name="limit1" xml:space="preserve">
+    <value>limit 1</value>
+  </data>
+  <data name="limit2" xml:space="preserve">
+    <value>limit 2</value>
+  </data>
+  <data name="limit3" xml:space="preserve">
+    <value>limit 3</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Authorization</value>
+  </data>
+  <data name="math_model" xml:space="preserve">
+    <value>Math model</value>
   </data>
   <data name="method1" xml:space="preserve">
-    <value>Симплекс</value>
+    <value>Method: Simplex</value>
+  </data>
+  <data name="method1descr" xml:space="preserve">
+    <value>The implex method is an iterative process of directionally solving a system of equations step by step, which begins with the reference solution and, in search of the best option, moves along the corner points of the region of feasible solution, improving the value of the objective function until the objective function reaches the optimal value.</value>
   </data>
   <data name="method2" xml:space="preserve">
-    <value>Гинетический</value>
+    <value>Method: Genetic</value>
   </data>
-  <data name="lang" xml:space="preserve">
-    <value>RU</value>
+  <data name="method2descr" xml:space="preserve">
+    <value>Genetic algorithm (born genetic algorithm) is a heuristic search algorithm used to solve optimization and simulation problems by randomly selecting, combining and varying the desired parameters using mechanisms similar to natural selection in nature. It is a type of evolutionary computation that solves optimization problems using natural evolution methods such as inheritance, mutation, selection, and crossing-over. A distinctive feature of the genetic algorithm is the emphasis on the use of the "crossing" operator, which performs the operation of recombination of candidate solutions, whose role is similar to the role of crossing in living nature.</value>
   </data>
-  <data name="accept" xml:space="preserve">
-    <value>Подтвердить</value>
+  <data name="register" xml:space="preserve">
+    <value>Registration</value>
   </data>
-  <data name="Age" xml:space="preserve">
-    <value>Возраст</value>
+  <data name="submit" xml:space="preserve">
+    <value>Submit</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Имя</value>
+  <data name="to_solver" xml:space="preserve">
+    <value>To Solver</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Вернуться</value>
+  <data name="to_use" xml:space="preserve">
+    <value>To use this application you should to log in to your account. Please, do it.</value>
   </data>
-  <data name="Result" xml:space="preserve">
-    <value>Результат</value>
+  <data name="unit_capital_costs" xml:space="preserve">
+    <value>Unit capital costs, cash units / pcs.</value>
   </data>
-  <data name="Change" xml:space="preserve">
-    <value>Изменить</value>
+  <data name="wait" xml:space="preserve">
+    <value>Please, wait</value>
   </data>
-  <data name="NotYourName" xml:space="preserve">
-    <value>Это не ваше имя ?</value>
-  </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Добро пожаловать</value>
+  <data name="welcome" xml:space="preserve">
+    <value>Welcome</value>
   </data>
   <data name="Basis" xml:space="preserve">
-    <value>Базис</value>
+    <value>Basis</value>
   </data>
   <data name="fMembers" xml:space="preserve">
-    <value>Свободные члены</value>
+    <value>Free members</value>
   </data>
   <data name="Iteration" xml:space="preserve">
-    <value>Итерация</value>
+    <value>Iteration</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
   </data>
   <data name="Sign" xml:space="preserve">
-    <value>Знак</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Авторизация</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Пароль</value>
-  </data>
-  <data name="Registration" xml:space="preserve">
-    <value>Регистрация</value>
-  </data>
-  <data name="Address" xml:space="preserve">
-    <value>Адрес</value>
+    <value>Sign</value>
   </data>
 </root>

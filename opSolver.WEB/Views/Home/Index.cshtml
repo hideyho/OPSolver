@@ -1,73 +1,237 @@
 ﻿
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Main Page";
 }
 
-<header>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="text-center">
-                @if (Request.Cookies["userName"] == null || Request.Cookies["userName"].Value == null)
-                {
-                    <h1>@lang.Resource.Introduce</h1>
-                    <h4>@lang.Resource.forStatistic</h4>
+<header class="header-index" id="index">
+    <div class="wrapper-dark">
+        <div class="title-index text-center">
+            <h1>@lang.Resource.welcome</h1>
+            <p>@lang.Resource.app_description</p>
+            <a href="#problem">
+                <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+            </a>
 
-                }
-                else
-                {
-                    <h1>
-                        @(lang.Resource.Welcome + "," + Request.Cookies["userName"].Value)
-                    </h1>
-                    <h4>
-                        @(lang.Resource.NotYourName + " " + lang.Resource.Introduce)
-                    </h4>
-                }
-            </div>
-            @*<div class="w-100"></div>
-            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger", @align = "center" })
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "opInput", @placeholder = lang.Resource.Name } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "opInput", @placeholder = lang.Resource.Age } })
-                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
-                <input class="opButton" type="submit" value="@lang.Resource.accept" />
-            }*@
         </div>
-    </div> 
+    </div>
 </header>
 
-@*<header>
+<section id="problem">
     <div class="container">
-        <div class="row">
-            <div class="main-title">
-                @if (Request.Cookies["userName"] == null || Request.Cookies["userName"].Value == null)
-                {
-                    <h1>@lang.Resource.Introduce</h1>
-                    <h4>@lang.Resource.forStatistic</h4>
+        <div class="row justify-content-center">
+            <h1 class="section-title">
+                @lang.Resource.form_problem
+            </h1>
+            <p class="section-description">
+                
+                @lang.Resource.formulation
 
-                }
-                else
-                {
-                    <h1>
-                        @(lang.Resource.Welcome+","+Request.Cookies["userName"].Value)
-                    </h1>
-                    <h4>
-                        @(lang.Resource.NotYourName + " " + lang.Resource.Introduce)
-                    </h4>
-                }
-                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-                {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger", @align = "center" })
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "opInput", @placeholder = lang.Resource.Name } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "opInput", @placeholder = lang.Resource.Age } })
-                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
-                <input class="opButton" type="submit" value="@lang.Resource.accept"/>
-                }
+               
+            </p>
+            <table class="table table-bordered">
+                <tr>
+                    <th scope="col" rowspan="2">@lang.Resource.indicator</th>
+                    <th scope="col" colspan="4">@lang.Resource.branch</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <th scope="row">@lang.Resource.cost</th>
+                    <td>83</td>
+                    <td>89</td>
+                    <td>95</td>
+                    <td>98</td>
+                </tr>
+                <tr>
+                    <th scope="row">@lang.Resource.unit_capital_costs</th>
+                    <td>120</td>
+                    <td>90</td>
+                    <td>80</td>
+                    <td>70</td>
+                </tr>
+            </table>
+            <h2 class="section-subtitle">
+                @lang.Resource.additional_terms
+            </h2>
+            <div class="w-100"></div>
+            <p class="section-description">
+               
+
+               @lang.Resource.additional
+
+
+            </p>
+            <div class="w-100"></div>
+            <h2 class="section-subtitle">
+                @lang.Resource.math_model
+            </h2>
+            <div class="w-100"></div>
+            <p class="section-description">
+                <button class="btn btn-outline-primary btn-ops" type="button" data-toggle="collapse" data-target="#collapseMath" aria-expanded="false" aria-controls="collapseMath">@lang.Resource.general</button>
+                <button class="btn btn-outline-primary btn-ops" type="button" data-toggle="collapse" data-target="#collapseMathA" aria-expanded="false" aria-controls="collapseMathA">@lang.Resource.condition1</button>
+                <button class="btn btn-outline-primary btn-ops" type="button" data-toggle="collapse" data-target="#collapseMathB" aria-expanded="false" aria-controls="collapseMathB">@lang.Resource.condition2</button>
+                <button class="btn btn-outline-primary btn-ops" type="button" data-toggle="collapse" data-target="#collapseMathC" aria-expanded="false" aria-controls="collapseMathC">@lang.Resource.condition3</button>
+            </p>
+            <div class="w-100"></div>
+            <div class="collapse" id="collapseMath">
+                <div class="card card-body">
+                    <img src="~/Reference/img/excel1.jpg" alt="">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th scope="row">f(X)</th>
+                            <td>(105-83)x1+(105-89)x2+(105-95)x3+(105-98)x4->max</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit1</th>
+                            <td>x1+x2+x3+x4>=30000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit2</th>
+                            <td>120x1+90x2+80x3+70x4<=2800000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit3</th>
+                            <td>x1,x2,x3,x4 = @lang.Resource.int_</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="collapse" id="collapseMathA">
+                <div class="card card-body">
+                    <img src="~/Reference/img/excel2.jpg" alt="">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th scope="row">f(X)</th>
+                            <td>(105-83<span class="orange">-5%</span>)x1+(105-89<span class="orange">-5%</span>)x2+(105-95<span class="orange">-5%</span>)x3+(105-98<span class="orange">-5%</span>)x4->max</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit1</th>
+                            <td>x1+x2+x3+x4>=30000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit2</th>
+                            <td>120x1+90x2+80x3+70x4<=2800000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit3</th>
+                            <td>x1,x2,x3,x4 = @lang.Resource.int_</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="collapse" id="collapseMathB">
+                <div class="card card-body">
+                    <img src="~/Reference/img/excel3.jpg" alt="">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th scope="row">f(X)</th>
+                            <td>(105-83)x1+(105-89)x2+(105-95)x3+(105-98)x4->max</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit1</th>
+                            <td>x1+x2+x3+x4>=30000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit2</th>
+                            <td>1203<span class="orange">-5%</span>x1+903<span class="orange">-5%</span>x2+803<span class="orange">-5%</span>x3+70x4<=2800000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit3</th>
+                            <td>x1,x2,x3,x4 = @lang.Resource.int_</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="collapse" id="collapseMathC">
+                <div class="card card-body">
+                    <img src="~/Reference/img/excel4.jpg" alt="">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th scope="row">f(X)</th>
+                            <td>(<span class="orange">100</span>-83)x1+(<span class="orange">100</span>-89)x2+(<span class="orange">100</span>-95)x3+(<span class="orange">100</span>-98)x4->max</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit1</th>
+                            <td>x1+x2+x3+x4>=30000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit2</th>
+                            <td>120x1+90x2+80x3+70x4<=2800000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@lang.Resource.limit3</th>
+                            <td>x1,x2,x3,x4 = @lang.Resource.int_</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</header>*@
+</section>
+<section id="simplex">
+    <div class="wrapper-dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="method-description">
+                    <h1 class="section-title">
+                        @lang.Resource.method1
+                    </h1>
+                    <p class="section-description">
+                      @lang.Resource.method1descr
+                    </p>
+                </div>
+                <h2 class="section-subtitle orange">
+                    F.A.Q.
+                </h2>
+                <p class="section-description text-center" style="color:#fff;">
+                    Для высчитывания метода заполните все данные и нажмите на подтвердить, или вы можете сразу выбрать одну из мат. моделей, основанных на задаче <br />
+                    Первые два поля - ограничения <br />
+                    Последнее - целевая функция
+
+
+                </p>
+                <img src="~/Reference/img/simplex.jpg"/>
+                <div class="w-100"></div>
+                <a href="@Url.Action("Simplex","Home")" class="btn btn-ops white">@lang.Resource.to_solver</a>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="genetic">
+    <div class="wrapper-dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="method-description">
+                    <h1 class="section-title">
+                        @lang.Resource.method2
+                    </h1>
+                    <p class="section-description">
+                        @lang.Resource.method2descr
+                    </p>
+                </div>
+                <h2 class="section-subtitle orange">
+                    F.A.Q.
+                </h2>
+                <p class="section-description text-center" style="color:#fff;">
+                   
+                    Для высчитывания метода заполните все данные и нажмите на подтвердить, или вы можете сразу выбрать одну из мат. моделей, основанных на задаче <br />
+                    Заполните кол-во поколений создаваемых методом ( чем больше поколение, тем точнее результат, но медленнее подсчет ) <br />
+                    Заполните кол-во особей в популяции <br />
+                    Первое поле - целевая функция <br />
+                    Последние два - ограничения
+                </p>
+                <img src="~/Reference/img/genetic.jpg" />
+                <div class="w-100"></div>
+                <a href="@Url.Action("Genetic","Home")" class="btn btn-ops white">@lang.Resource.to_solver</a>
+
+
+            </div>
+        </div>
+    </div>
+</section>

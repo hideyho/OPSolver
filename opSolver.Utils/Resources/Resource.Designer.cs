@@ -61,52 +61,40 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на О программе.
+        ///   Ищет локализованную строку, похожую на How will the optimal distribution of production volumes and capital investments change if:
+        ///                
+        ///                a) due to internal reserves, i-th branch (i = 1 - 4) will reduce the unit cost of production by  5% 
+        ///                
+        ///                b) at the expense of internal reserves, the i-th branch will reduce the specific capital costs by &lt;span class=&quot;orange&quot;&gt; 5% &lt;/span&gt;
+        ///                
+        ///                c) due to competition in the market, the product will be sold at a price of 100  den [остаток строки не уместился]&quot;;.
         /// </summary>
-        public static string About {
+        public static string additional {
             get {
-                return ResourceManager.GetString("About", resourceCulture);
+                return ResourceManager.GetString("additional", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Подтвердить.
+        ///   Ищет локализованную строку, похожую на Additional terms.
         /// </summary>
-        public static string accept {
+        public static string additional_terms {
             get {
-                return ResourceManager.GetString("accept", resourceCulture);
+                return ResourceManager.GetString("additional_terms", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Адрес.
+        ///   Ищет локализованную строку, похожую на The application was developed as a course project on &quot;optimizing design solutions&quot; for finding a solution to optimizing a specific task (described on the main page). Author: Dunko Egor.
         /// </summary>
-        public static string Address {
+        public static string app_description {
             get {
-                return ResourceManager.GetString("Address", resourceCulture);
+                return ResourceManager.GetString("app_description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Возраст.
-        /// </summary>
-        public static string Age {
-            get {
-                return ResourceManager.GetString("Age", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Вернуться.
-        /// </summary>
-        public static string Back {
-            get {
-                return ResourceManager.GetString("Back", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Базис.
+        ///   Ищет локализованную строку, похожую на Basis.
         /// </summary>
         public static string Basis {
             get {
@@ -115,34 +103,52 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Изменить.
+        ///   Ищет локализованную строку, похожую на № of branch.
         /// </summary>
-        public static string Change {
+        public static string branch {
             get {
-                return ResourceManager.GetString("Change", resourceCulture);
+                return ResourceManager.GetString("branch", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Неизвестно.
+        ///   Ищет локализованную строку, похожую на Cost price -5%.
         /// </summary>
-        public static string cookieName {
+        public static string condition1 {
             get {
-                return ResourceManager.GetString("cookieName", resourceCulture);
+                return ResourceManager.GetString("condition1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Email.
+        ///   Ищет локализованную строку, похожую на Capital expenditures -5%.
         /// </summary>
-        public static string Email {
+        public static string condition2 {
             get {
-                return ResourceManager.GetString("Email", resourceCulture);
+                return ResourceManager.GetString("condition2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Свободные члены.
+        ///   Ищет локализованную строку, похожую на Item price 100.
+        /// </summary>
+        public static string condition3 {
+            get {
+                return ResourceManager.GetString("condition3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cost, cash units / pcs..
+        /// </summary>
+        public static string cost {
+            get {
+                return ResourceManager.GetString("cost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Free members.
         /// </summary>
         public static string fMembers {
             get {
@@ -151,25 +157,52 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Это нужно для статистики.
+        ///   Ищет локализованную строку, похожую на Formulation of the problem.
         /// </summary>
-        public static string forStatistic {
+        public static string form_problem {
             get {
-                return ResourceManager.GetString("forStatistic", resourceCulture);
+                return ResourceManager.GetString("form_problem", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Пожалуйста, представьтесь.
+        ///   Ищет локализованную строку, похожую на In the planned period, the production association (PO), consisting of four branches, must ensure production of at least  30  thousand pieces. new products. For mastering the production of this new type of software, software allocates investments in the amount of  2.8  million den. units Each branch has developed its own project for the development of a new product, which is characterized by the values ​​of specific capital costs and cost per unit of production (data in the table). The product is planned to  [остаток строки не уместился]&quot;;.
         /// </summary>
-        public static string Introduce {
+        public static string formulation {
             get {
-                return ResourceManager.GetString("Introduce", resourceCulture);
+                return ResourceManager.GetString("formulation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Итерация.
+        ///   Ищет локализованную строку, похожую на General.
+        /// </summary>
+        public static string general {
+            get {
+                return ResourceManager.GetString("general", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Indicator.
+        /// </summary>
+        public static string indicator {
+            get {
+                return ResourceManager.GetString("indicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на integer.
+        /// </summary>
+        public static string int_ {
+            get {
+                return ResourceManager.GetString("int_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Iteration.
         /// </summary>
         public static string Iteration {
             get {
@@ -178,7 +211,7 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на RU.
+        ///   Ищет локализованную строку, похожую на EN.
         /// </summary>
         public static string lang {
             get {
@@ -187,25 +220,52 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Авторизация.
+        ///   Ищет локализованную строку, похожую на limit 1.
         /// </summary>
-        public static string Login {
+        public static string limit1 {
             get {
-                return ResourceManager.GetString("Login", resourceCulture);
+                return ResourceManager.GetString("limit1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Метод.
+        ///   Ищет локализованную строку, похожую на limit 2.
         /// </summary>
-        public static string Method {
+        public static string limit2 {
             get {
-                return ResourceManager.GetString("Method", resourceCulture);
+                return ResourceManager.GetString("limit2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Симплекс.
+        ///   Ищет локализованную строку, похожую на limit 3.
+        /// </summary>
+        public static string limit3 {
+            get {
+                return ResourceManager.GetString("limit3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Authorization.
+        /// </summary>
+        public static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Math model.
+        /// </summary>
+        public static string math_model {
+            get {
+                return ResourceManager.GetString("math_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Method: Simplex.
         /// </summary>
         public static string method1 {
             get {
@@ -214,7 +274,16 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Гинетический.
+        ///   Ищет локализованную строку, похожую на The implex method is an iterative process of directionally solving a system of equations step by step, which begins with the reference solution and, in search of the best option, moves along the corner points of the region of feasible solution, improving the value of the objective function until the objective function reaches the optimal value..
+        /// </summary>
+        public static string method1descr {
+            get {
+                return ResourceManager.GetString("method1descr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Method: Genetic.
         /// </summary>
         public static string method2 {
             get {
@@ -223,43 +292,25 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Имя.
+        ///   Ищет локализованную строку, похожую на Genetic algorithm (born genetic algorithm) is a heuristic search algorithm used to solve optimization and simulation problems by randomly selecting, combining and varying the desired parameters using mechanisms similar to natural selection in nature. It is a type of evolutionary computation that solves optimization problems using natural evolution methods such as inheritance, mutation, selection, and crossing-over. A distinctive feature of the genetic algorithm is the emphasis on the use of the &quot;crossing&quot; o [остаток строки не уместился]&quot;;.
         /// </summary>
-        public static string Name {
+        public static string method2descr {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
+                return ResourceManager.GetString("method2descr", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Это не ваше имя ?.
+        ///   Ищет локализованную строку, похожую на Registration.
         /// </summary>
-        public static string NotYourName {
+        public static string register {
             get {
-                return ResourceManager.GetString("NotYourName", resourceCulture);
+                return ResourceManager.GetString("register", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Пароль.
-        /// </summary>
-        public static string Password {
-            get {
-                return ResourceManager.GetString("Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Регистрация.
-        /// </summary>
-        public static string Registration {
-            get {
-                return ResourceManager.GetString("Registration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Результат.
+        ///   Ищет локализованную строку, похожую на Result.
         /// </summary>
         public static string Result {
             get {
@@ -268,7 +319,7 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Знак.
+        ///   Ищет локализованную строку, похожую на Sign.
         /// </summary>
         public static string Sign {
             get {
@@ -277,20 +328,56 @@ namespace lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Статистика.
+        ///   Ищет локализованную строку, похожую на Submit.
         /// </summary>
-        public static string Statistic {
+        public static string submit {
             get {
-                return ResourceManager.GetString("Statistic", resourceCulture);
+                return ResourceManager.GetString("submit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Добро пожаловать.
+        ///   Ищет локализованную строку, похожую на To Solver.
         /// </summary>
-        public static string Welcome {
+        public static string to_solver {
             get {
-                return ResourceManager.GetString("Welcome", resourceCulture);
+                return ResourceManager.GetString("to_solver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на To use this application you should to log in to your account. Please, do it..
+        /// </summary>
+        public static string to_use {
+            get {
+                return ResourceManager.GetString("to_use", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Unit capital costs, cash units / pcs..
+        /// </summary>
+        public static string unit_capital_costs {
+            get {
+                return ResourceManager.GetString("unit_capital_costs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Please, wait.
+        /// </summary>
+        public static string wait {
+            get {
+                return ResourceManager.GetString("wait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Welcome.
+        /// </summary>
+        public static string welcome {
+            get {
+                return ResourceManager.GetString("welcome", resourceCulture);
             }
         }
     }

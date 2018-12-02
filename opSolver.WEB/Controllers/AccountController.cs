@@ -87,7 +87,7 @@ namespace opSolver.WEB.Controllers
                 };
                 OperationDetails operationDetails = await UserService.Create(user);
                 if (operationDetails.Succedeed)
-                    return View("SuccessRegister");
+                    return View("Login");
                 else
                     ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
             }
